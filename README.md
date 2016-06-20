@@ -3,6 +3,13 @@ http://www.mkgmap.org.uk/download/mkgmap.html
 
 Pura paketti, siirra mkgmap.jar ja lib/ hakemisto paatasolle
 
+Lataa zippi fileet bounds.zip ja  sea.zip osoittesta:
+http://www.mkgmap.org.uk/download/mkgmap.html
+ja file cities.zip
+download.geonames.org/export/dump/cities15000.zip  
+
+jata paketit paatasolle
+
 Lataa osmosis paketti osoitteesta:
 http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.zip
 
