@@ -64,7 +64,7 @@ highway=residental {set highway=residential}
 
 highway=pedestrian & bicycle!=no {set highway=footway}
 highway=bridleway & bicycle!=no {set highway=footway}
-highway=living_street [0x10E1C resolution 20]
+highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
 
 
@@ -163,18 +163,22 @@ highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 resoluti
 ###################################################################
 
 ### Links
-highway=motorway_link [0x10F12 resolution 18]
-highway=trunk_link [0x10F15 resolution 18]
-highway=primary_link [0x10F18 resolution 18]
-highway=secondary_link [0x10F1A resolution 18]
-highway=tertiary_link [0x10F1B resolution 18]
+highway=motorway_link [0x10F10 resolution 18]
+highway=trunk_link [0x10F11 resolution 18]
+highway=primary_link [0x10F12 resolution 18]
+highway=secondary_link [0x10F13 resolution 18]
+highway=tertiary_link [0x10F14 resolution 18]
+highway=residential_link [0x10F14 resolution 18]
+highway=service_link [0x10F14 resolution 18]
 
 ### Roundabouts
-highway=motorway & junction=roundabout [0x10F09 resolution 18]
-highway=trunk & junction=roundabout [0x10F0C resolution 18]
-highway=primary & junction=roundabout [0x10F0D resolution 18]
-highway=secondary & junction=roundabout [0x10F0E resolution 18]
-highway=tertiary & junction=roundabout [0x10F0F resolution 18]
+highway=motorway & junction=roundabout [0x1060D resolution 18]
+highway=trunk & junction=roundabout [0x1060E resolution 18]
+highway=primary & junction=roundabout [0x1060F resolution 18]
+highway=secondary & junction=roundabout [0x10610 resolution 18]
+highway=tertiary & junction=roundabout [0x10611 resolution 18]
+highway=residential & junction=roundabout [0x10612 resolution 18]
+highway=service & junction=roundabout [0x10613 resolution 18]
 
 
 ###################################################################
