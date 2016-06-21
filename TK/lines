@@ -67,6 +67,7 @@ highway=bridleway & bicycle!=no {set highway=footway}
 highway=living_street [0x10E1C resolution 20]
 highway=bicycle_road {set highway=cycleway}
 
+
 ###################################################################
 ### mtb:scale styles for paths/tracks/footways
 ###################################################################
@@ -139,7 +140,6 @@ highway=footway & mtb:scale=3 [0x10E05 resolution 20]
 highway=footway & mtb:scale=4 [0x10E06 resolution 20]
 highway=footway & mtb:scale=5 [0x10E07 resolution 20]
 
-
 ###################################################################
 ### Cycleways
 ###################################################################
@@ -149,12 +149,13 @@ highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 resolution 20]
 highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 resolution 20]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as paved
-highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 resolution 20]
 highway=cycleway & surface=paved & mtb:scale!=* [0x10119 resolution 20]
+highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 resolution 20]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as asphalt
-highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 resolution 20]
 highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 resolution 20]
+highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 resolution 20]
+
 
 
 ###################################################################
