@@ -185,6 +185,13 @@ barrier=wall | barrier=fence [0x10102 resolution 20]
 barrier=hedge [0x10200 resolution 20]
 
 
+###################################################################
+### Hide unnecessary lines i.e. remove their tags
+###################################################################
+
+route=ferry {deletealltags}
+waterway=river {deletealltags}
+
 
 	
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
