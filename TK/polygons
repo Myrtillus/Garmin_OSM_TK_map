@@ -28,7 +28,7 @@ building=* [0x01300]
 
 landuse=residential [0x00200]
 landuse=industrial [0x00300]
-
+natural=land [0x10100]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
