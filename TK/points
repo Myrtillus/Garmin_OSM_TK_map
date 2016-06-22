@@ -13,9 +13,9 @@
 ### Added pints
 ###################################################################
 
-fixme=resurvey [0x1961A]
-fixme=continue [0x1961B]
-noexit=yes [0x1961C]
+fixme=resurvey [0x1010C]
+fixme=continue [0x1010D]
+noexit=yes [0x1010E]
 
 
 
