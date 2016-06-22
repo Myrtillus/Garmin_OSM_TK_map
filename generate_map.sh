@@ -13,22 +13,30 @@ cd /home/nissiant/Garmin_OSM_TK_map
 #################
 
 
-# Splitting the file
+# Splitting the data from finland dump and generate map
+#########################################################
+
 osmosis/bin/osmosis --read-pbf file=/var/tmp/osm/finland-latest.osm.pbf --bounding-box left=23 bottom=60.8 right=24.9 top=62.00 --write-pbf tampere_region_final.osm.pbf
 
-# Generate the map file
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere_region_final.osm.pbf TK.typ
 
-#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere_region_final.osm.pbf TK.typ
+# Retrieving OSM data directly and generating map
+#################################################
 
-wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
+#wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
+#wget -O tampere.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
 
-java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere.osm TK.typ
+#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere.osm TK.typ
 
-# copy the map file to /var/www for downloading
+
+
+# copy the map file to /var/www for downloading and clean up the directory
+
 mv gmapsupp.img OSM_TK_MTB_map.img
 sudo chown www-data:www-data OSM_TK_MTB_map.img
 sudo mv -f OSM_TK_MTB_map.img /var/www
 rm tampere.osm
+
 
 # OULU
 #################
