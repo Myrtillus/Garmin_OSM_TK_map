@@ -28,6 +28,7 @@ java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis -
 mv gmapsupp.img OSM_TK_MTB_map.img
 sudo chown www-data:www-data OSM_TK_MTB_map.img
 sudo mv -f OSM_TK_MTB_map.img /var/www
+rm tampere.osm
 
 # OULU
 #################
