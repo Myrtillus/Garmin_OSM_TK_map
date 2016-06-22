@@ -46,3 +46,7 @@ sudo mv -f OSM_TK_MTB_map_Oulu.img /var/www
 rm osmmap.* *.img *.pbf osmmap_license.txt
 
 
+
+# uuden datan kiskaiseminen
+#  wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
+
