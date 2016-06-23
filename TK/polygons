@@ -30,6 +30,7 @@ landuse=residential [0x00200]
 landuse=industrial [0x00300]
 landuse=conservation [0x05700]
 natural=land [0x10100]
+natural=wetland [0x1101C]
 
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
