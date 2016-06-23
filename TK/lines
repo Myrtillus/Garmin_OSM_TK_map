@@ -199,6 +199,16 @@ highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 road_cla
 highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
 
 
+# Name unnamed paths/tracks etc. based on their highwaytype or based on their mtb:scale if it exists
+highway=path & mtb:scale!=* & name!=* {add name=Path}
+highway=path & mtb:scale=* & name!=* {add name='Path, mtb:scale ${mtb:scale}'}
+highway=track & mtb:scale!=* & name!=* {add name=Track}
+highway=track & mtb:scale=* & name!=* {add name='Track, mtb:scale ${mtb:scale}'}
+highway=footway & mtb:scale!=* & name!=* {add name=Footway}
+highway=footway & mtb:scale=* & name!=* {add name='Footway, mtb:scale ${mtb:scale}'}
+highway=cycleway & mtb:scale!=* & name!=* {add name=Cycleway}
+highway=cycleway & mtb:scale=* & name!=* {add name='Cycleway, mtb:scale ${mtb:scale}'}
+# Cycleways don't currently have mtb:scales, but in case that changes in the future.
 
 
 ###################################################################
