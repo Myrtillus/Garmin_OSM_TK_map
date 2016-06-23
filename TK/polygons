@@ -15,23 +15,18 @@
 natural=bay {set natural=water}
 wetland=reedbed [0x05600 resolution 12]
 
-###################################################################
-### Buildings
-###################################################################
-
-### Make all buildings black
-building=* [0x01300]
 
 
 ###################################################################
 ### Ground colors based on landuse
 ###################################################################
 
-landuse=residential [0x00200]
-landuse=industrial [0x00300]
-landuse=conservation [0x05700]
-natural=land [0x10100]
-natural=wetland [0x1101C]
+landuse=residential [0x00200 resolution 0-24]
+landuse=industrial [0x00300 resolution 0-24]
+landuse=conservation [0x05700 resolution 0-24]
+natural=land [0x10100 resolution 0-24]
+natural=wetland [0x1101C resolution 0-24]
+
 
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
@@ -44,21 +39,6 @@ include 'inc/name';
 aeroway=airport [0x07 resolution 20]
 aeroway=aerodrome [0x07 resolution 20]
 aeroway=helipad [0x0e resolution 22]
-
-amenity=kindergarten [0x0a resolution 22]
-amenity=cafe | amenity=fast_food | amenity=restaurant | amenity=food_court [0x08 resolution 22]
-amenity=college [0x0a resolution 22]
-parking=underground | parking=multi-storey [0x06 resolution 22]
-amenity=parking | parking=surface [0x05 resolution 22]
-amenity=prison [0x04 resolution 22]
-amenity=school [0x0a resolution 22]
-# amenity=supermarket is superceded by shop=supermarket or landuse=retail
-amenity=supermarket [0x08 resolution 22]
-amenity=university [0x0a resolution 21]
-
-healthcare=hospital | amenity=hospital | amenity=clinic [0x0b resolution 22]
-healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home
-[0x0b resolution 23]
 
 leisure=common [0x17 resolution 21]
 leisure=garden [0x17 resolution 21]
@@ -78,8 +58,6 @@ place=village [0x03 resolution 19]
 place=island & name=* [0x53 resolution 19]
 place=islet & name=* [0x53 resolution 20]
 
-shop=* [0x08 resolution 22]
-
 # squares and plazas
 highway=pedestrian & area=yes [0x17 resolution 22]
 # other highways that have area=yes set must be parking lots
@@ -88,22 +66,21 @@ highway=* & area=yes [0x05 resolution 22]
 historic=museum | historic=memorial [0x1e resolution 21]
 historic=archaeological_site | historic=ruins [0x1e resolution 21]
 
-# building tag should be last
-(building=* | amenity=*) & area!=no & amenity!=grave_yard [0x13 resolution 24]
-tourism=* & area!=no & waterway!=* [0x1f resolution 24]
-# man_made can be used on areas or lines
-man_made=* & area!=no
-& (man_made!=door & man_made!=embankment & man_made!=breakwater
-   & man_made!=cable_line & man_made!=cutline & man_made!=cutting
-   & man_made!=levee & man_made!=trench
-   & man_made!=groyne & man_made!=reinforced_slope)
-[0x13 resolution 24]
 
-man_made=* & area=yes
-[0x13 resolution 24]
 
 include 'inc/water_polygons';
 include 'inc/landuse_polygons';
+
+
+###################################################################
+### Buildings
+###################################################################
+
+### Make all buildings black
+building=* [0x01300 resolution 18-24]
+
+
+
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
