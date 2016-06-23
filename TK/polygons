@@ -22,6 +22,7 @@ wetland=reedbed [0x05600 resolution 12]
 ### Make all buildings black
 building=* [0x01300]
 
+
 ###################################################################
 ### Ground colors based on landuse
 ###################################################################
