@@ -8,6 +8,21 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+###################################################################
+### Spellcheck
+###################################################################
+
+FIXME=* & fixme!=* {set fixme='${FIXME}'}
+Fixme=* & fixme!=* {set fixme='${Fixme}'}
+FixMe=* & fixme!=* {set fixme='${FixMe}'}
+
+NOEXIT=* & noexit!=* {set noexit='${NOEXIT}'}
+Noexit=* & noexit!=* {set noexit='${Noexit}'}
+NoExit=* & noexit!=* {set noexit='${NoExit}'}
+
+fixme=Resurvey {set fixme=resurvey}
+fixme=Continue {set fixme=continue}
+noexit=Yes {set noexit=yes}
 
 ###################################################################
 ### Added pints
