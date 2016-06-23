@@ -67,48 +67,49 @@ highway=bridleway & bicycle!=no {set highway=footway}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
 highway=cycleway {delete mtb:scale}
-highway=service [0x10613 road_class=0]
+highway=service [0x10613 road_class=0 resolution 22-24]
 # for some reason highway=service wasn't working with the internal type address...
 
 ###################################################################
 ### mtb:scale styles for paths/tracks/footways
 ###################################################################
+###Paths colored based on mtb:scale or cycleway key. Solid color lines for zoomed out view to reduce clutter, poitn is to see what kind of paths are (/have been tagged) where.
 
-### Forbidden paths/tracks/footways, must be before general mtb:scale rules (?)
-highway=path & mtb:scale="-1" [0x10E10 resolution 20]
-highway=track & mtb:scale="-1" [0x10E11 resolution 20]
-highway=footway & mtb:scale="-1" [0x10E10 resolution 20]
+### Forbidden paths/tracks/footways, must be before general mtb:scale rules (?). Disappear from view when zoomed out.
+highway=path & mtb:scale="-1" [0x10E10 resolution 23-24]
+highway=track & mtb:scale="-1" [0x10E11 resolution 23-24]
+highway=footway & mtb:scale="-1" [0x10E10 resolution 23-24]
 
-### Wet path/track/footway marker line overlays, must be before general mtb:scale rules
-highway=path & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 20]
-highway=path & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 20]
-highway=path & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 20]
-highway=path & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 20]
-highway=path & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 20]
-highway=path & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 20]
-highway=path & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 20]
-highway=path & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 20]
-highway=path & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 20]
+### Wet path/track/footway marker line overlays, must be before general mtb:scale rules. Only for zoomed in view.
+highway=path & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 23-24]
+highway=path & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 23-24]
+highway=path & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 23-24]
+highway=path & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 23-24]
+highway=path & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 23-24]
+highway=path & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 23-24]
+highway=path & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 23-24]
+highway=path & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 23-24]
+highway=path & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 23-24]
 
-highway=track & mtb:scale!=* & surface=mud [0x132 road_class=0 resolution 20]
-highway=track & mtb:scale="0-" & surface=mud [0x133 road_class=0 resolution 20]
-highway=track & mtb:scale=0 & surface=mud [0x134 road_class=0 resolution 20]
-highway=track & mtb:scale="0+" & surface=mud [0x135 road_class=0 resolution 20]
-highway=track & mtb:scale=1 & surface=mud [0x136 road_class=0 resolution 20]
-highway=track & mtb:scale=2 & surface=mud [0x137 road_class=0 resolution 20]
-highway=track & mtb:scale=3 & surface=mud [0x138 road_class=0 resolution 20]
-highway=track & mtb:scale=4 & surface=mud [0x139 road_class=0 resolution 20]
-highway=track & mtb:scale=5 & surface=mud [0x140 road_class=0 resolution 20]
+highway=track & mtb:scale!=* & surface=mud [0x132 road_class=0 resolution 23-24]
+highway=track & mtb:scale="0-" & surface=mud [0x133 road_class=0 resolution 23-24]
+highway=track & mtb:scale=0 & surface=mud [0x134 road_class=0 resolution 23-24]
+highway=track & mtb:scale="0+" & surface=mud [0x135 road_class=0 resolution 23-24]
+highway=track & mtb:scale=1 & surface=mud [0x136 road_class=0 resolution 23-24]
+highway=track & mtb:scale=2 & surface=mud [0x137 road_class=0 resolution 23-24]
+highway=track & mtb:scale=3 & surface=mud [0x138 road_class=0 resolution 23-24]
+highway=track & mtb:scale=4 & surface=mud [0x139 road_class=0 resolution 23-24]
+highway=track & mtb:scale=5 & surface=mud [0x140 road_class=0 resolution 23-24]
 
-highway=footway & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 20]
-highway=footway & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 20]
-highway=footway & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 20]
-highway=footway & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 20]
-highway=footway & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 20]
-highway=footway & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 20]
-highway=footway & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 20]
-highway=footway & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 20]
-highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 20]
+highway=footway & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 23-24]
+highway=footway & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 23-24]
+highway=footway & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 23-24]
 
 
 ### Colors for highway=path
@@ -178,16 +179,25 @@ highway=footway & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 ###################################################################
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
-highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 20]
-highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 20]
+highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
+highway=cycleway & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
+highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as paved
-highway=cycleway & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 20]
-highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 20]
+highway=cycleway & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
+highway=cycleway & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
+highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as asphalt
-highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 20]
-highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 20]
+highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
+highway=cycleway & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
+highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+
 
 
 
