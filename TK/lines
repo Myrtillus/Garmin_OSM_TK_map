@@ -67,7 +67,7 @@ highway=bridleway & bicycle!=no {set highway=footway}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
 highway=cycleway {delete mtb:scale}
-highway=service [0x10613]
+highway=service [0x10613 road_class=0]
 # for some reason highway=service wasn't working with the internal type address...
 
 ###################################################################
@@ -80,83 +80,114 @@ highway=track & mtb:scale="-1" [0x10E11 resolution 20]
 highway=footway & mtb:scale="-1" [0x10E10 resolution 20]
 
 ### Wet path/track/footway marker line overlays, must be before general mtb:scale rules
-highway=path & mtb:scale!=* & surface=mud [0x123 resolution 20]
-highway=path & mtb:scale="0-" & surface=mud [0x124 resolution 20]
-highway=path & mtb:scale=0 & surface=mud [0x125 resolution 20]
-highway=path & mtb:scale="0+" & surface=mud [0x126 resolution 20]
-highway=path & mtb:scale=1 & surface=mud [0x127 resolution 20]
-highway=path & mtb:scale=2 & surface=mud [0x128 resolution 20]
-highway=path & mtb:scale=3 & surface=mud [0x129 resolution 20]
-highway=path & mtb:scale=4 & surface=mud [0x130 resolution 20]
-highway=path & mtb:scale=5 & surface=mud [0x131 resolution 20]
+highway=path & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 20]
+highway=path & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 20]
+highway=path & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 20]
+highway=path & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 20]
+highway=path & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 20]
+highway=path & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 20]
+highway=path & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 20]
+highway=path & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 20]
+highway=path & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 20]
 
-highway=track & mtb:scale!=* & surface=mud [0x132 resolution 20]
-highway=track & mtb:scale="0-" & surface=mud [0x133 resolution 20]
-highway=track & mtb:scale=0 & surface=mud [0x134 resolution 20]
-highway=track & mtb:scale="0+" & surface=mud [0x135 resolution 20]
-highway=track & mtb:scale=1 & surface=mud [0x136 resolution 20]
-highway=track & mtb:scale=2 & surface=mud [0x137 resolution 20]
-highway=track & mtb:scale=3 & surface=mud [0x138 resolution 20]
-highway=track & mtb:scale=4 & surface=mud [0x139 resolution 20]
-highway=track & mtb:scale=5 & surface=mud [0x140 resolution 20]
+highway=track & mtb:scale!=* & surface=mud [0x132 road_class=0 resolution 20]
+highway=track & mtb:scale="0-" & surface=mud [0x133 road_class=0 resolution 20]
+highway=track & mtb:scale=0 & surface=mud [0x134 road_class=0 resolution 20]
+highway=track & mtb:scale="0+" & surface=mud [0x135 road_class=0 resolution 20]
+highway=track & mtb:scale=1 & surface=mud [0x136 road_class=0 resolution 20]
+highway=track & mtb:scale=2 & surface=mud [0x137 road_class=0 resolution 20]
+highway=track & mtb:scale=3 & surface=mud [0x138 road_class=0 resolution 20]
+highway=track & mtb:scale=4 & surface=mud [0x139 road_class=0 resolution 20]
+highway=track & mtb:scale=5 & surface=mud [0x140 road_class=0 resolution 20]
 
-highway=footway & mtb:scale!=* & surface=mud [0x123 resolution 20]
-highway=footway & mtb:scale="0-" & surface=mud [0x124 resolution 20]
-highway=footway & mtb:scale=0 & surface=mud [0x125 resolution 20]
-highway=footway & mtb:scale="0+" & surface=mud [0x126 resolution 20]
-highway=footway & mtb:scale=1 & surface=mud [0x127 resolution 20]
-highway=footway & mtb:scale=2 & surface=mud [0x128 resolution 20]
-highway=footway & mtb:scale=3 & surface=mud [0x129 resolution 20]
-highway=footway & mtb:scale=4 & surface=mud [0x130 resolution 20]
-highway=footway & mtb:scale=5 & surface=mud [0x131 resolution 20]
+highway=footway & mtb:scale!=* & surface=mud [0x123 road_class=0 resolution 20]
+highway=footway & mtb:scale="0-" & surface=mud [0x124 road_class=0 resolution 20]
+highway=footway & mtb:scale=0 & surface=mud [0x125 road_class=0 resolution 20]
+highway=footway & mtb:scale="0+" & surface=mud [0x126 road_class=0 resolution 20]
+highway=footway & mtb:scale=1 & surface=mud [0x127 road_class=0 resolution 20]
+highway=footway & mtb:scale=2 & surface=mud [0x128 road_class=0 resolution 20]
+highway=footway & mtb:scale=3 & surface=mud [0x129 road_class=0 resolution 20]
+highway=footway & mtb:scale=4 & surface=mud [0x130 road_class=0 resolution 20]
+highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 20]
 
 
-### Colors for highway=path, highway=track, highway=footway
-highway=path & mtb:scale!=* [0x016 resolution 20]
-highway=path & mtb:scale="0-" [0x10E00 resolution 20]
-highway=path & mtb:scale=0 [0x10E01 resolution 20]
-highway=path & mtb:scale="0+" [0x10E02 resolution 20]
-highway=path & mtb:scale=1 [0x10E03 resolution 20]
-highway=path & mtb:scale=2 [0x10E04 resolution 20]
-highway=path & mtb:scale=3 [0x10E05 resolution 20]
-highway=path & mtb:scale=4 [0x10E06 resolution 20]
-highway=path & mtb:scale=5 [0x10E07 resolution 20]
+### Colors for highway=path
+highway=path & mtb:scale!=* [0x016 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale!=* [0x016 road_class=0 resolution 18-22]
+highway=path & mtb:scale="0-" [0x10E00 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
+highway=path & mtb:scale=0 [0x10E01 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=0 [0x10E17 road_class=0 resolution 18-22]
+highway=path & mtb:scale="0+" [0x10E02 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale="0+" [0x10E18 road_class=0 resolution 18-22]
+highway=path & mtb:scale=1 [0x10E03 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=1 [0x10E19 road_class=0 resolution 18-22]
+highway=path & mtb:scale=2 [0x10E04 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=2 [0x10E1A road_class=0 resolution 18-22]
+highway=path & mtb:scale=3 [0x10E05 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=3 [0x10E1B road_class=0 resolution 18-22]
+highway=path & mtb:scale=4 [0x10E06 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=4 [0x10E1C road_class=0 resolution 18-22]
+highway=path & mtb:scale=5 [0x10E07 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 
-highway=track & mtb:scale!=* [0x015 resolution 20]
-highway=track & mtb:scale="0-" [0x10E08 resolution 20]
-highway=track & mtb:scale=0 [0x10E09 resolution 20]
-highway=track & mtb:scale="0+" [0x10E0A resolution 20]
-highway=track & mtb:scale=1 [0x10E0B resolution 20]
-highway=track & mtb:scale=2 [0x10E0C resolution 20]
-highway=track & mtb:scale=3 [0x10E0D resolution 20]
-highway=track & mtb:scale=4 [0x10E0E resolution 20]
-highway=track & mtb:scale=5 [0x10E0F resolution 20]
+### Colors for highway=track
+highway=track & mtb:scale!=* [0x015 road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale!=* [0x015 road_class=0 resolution 18-22]
+highway=track & mtb:scale="0-" [0x10E08 road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
+highway=track & mtb:scale=0 [0x10E09 road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=0 [0x10E17 road_class=0 resolution 18-22]
+highway=track & mtb:scale="0+" [0x10E0A road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale="0+" [0x10E18 road_class=0 resolution 18-22]
+highway=track & mtb:scale=1 [0x10E0B road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=1 [0x10E19 road_class=0 resolution 18-22]
+highway=track & mtb:scale=2 [0x10E0C road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=2 [0x10E1A road_class=0 resolution 18-22]
+highway=track & mtb:scale=3 [0x10E0D road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=3 [0x10E1B road_class=0 resolution 18-22]
+highway=track & mtb:scale=4 [0x10E0E road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=4 [0x10E1C road_class=0 resolution 18-22]
+highway=track & mtb:scale=5 [0x10E0F road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 
-highway=footway & mtb:scale!=* [0x016 resolution 20]
-highway=footway & mtb:scale="0-" [0x10E00 resolution 20]
-highway=footway & mtb:scale=0 [0x10E01 resolution 20]
-highway=footway & mtb:scale="0+" [0x10E02 resolution 20]
-highway=footway & mtb:scale=1 [0x10E03 resolution 20]
-highway=footway & mtb:scale=2 [0x10E04 resolution 20]
-highway=footway & mtb:scale=3 [0x10E05 resolution 20]
-highway=footway & mtb:scale=4 [0x10E06 resolution 20]
-highway=footway & mtb:scale=5 [0x10E07 resolution 20]
+### Colors for highway=footway
+highway=footway & mtb:scale!=* [0x016 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale!=* [0x016 road_class=0 resolution 18-22]
+highway=footway & mtb:scale="0-" [0x10E00 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
+highway=footway & mtb:scale=0 [0x10E01 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=0 [0x10E17 road_class=0 resolution 18-22]
+highway=footway & mtb:scale="0+" [0x10E02 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale="0+" [0x10E18 road_class=0 resolution 18-22]
+highway=footway & mtb:scale=1 [0x10E03 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=1 [0x10E19 road_class=0 resolution 18-22]
+highway=footway & mtb:scale=2 [0x10E04 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=2 [0x10E1A road_class=0 resolution 18-22]
+highway=footway & mtb:scale=3 [0x10E05 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=3 [0x10E1B road_class=0 resolution 18-22]
+highway=footway & mtb:scale=4 [0x10E06 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=4 [0x10E1C road_class=0 resolution 18-22]
+highway=footway & mtb:scale=5 [0x10E07 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
+
+
 
 ###################################################################
 ### Cycleways
 ###################################################################
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
-highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 resolution 20]
-highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 resolution 20]
+highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 20]
+highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 20]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as paved
-highway=cycleway & surface=paved & mtb:scale!=* [0x10119 resolution 20]
-highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 resolution 20]
+highway=cycleway & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 20]
+highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 20]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as asphalt
-highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 resolution 20]
-highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 resolution 20]
+highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 20]
+highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 20]
 
 
 
@@ -165,22 +196,22 @@ highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 resoluti
 ###################################################################
 
 ### Links
-highway=motorway_link [0x10F10 resolution 18]
-highway=trunk_link [0x10F11 resolution 18]
-highway=primary_link [0x10F12 resolution 18]
-highway=secondary_link [0x10F13 resolution 18]
-highway=tertiary_link [0x10F14 resolution 18]
-highway=residential_link [0x10F14 resolution 18]
-highway=service_link [0x10F14 resolution 18]
+highway=motorway_link [0x10F10 road_class=3 resolution 18]
+highway=trunk_link [0x10F11 road_class=3 resolution 18]
+highway=primary_link [0x10F12 road_class=2 resolution 18]
+highway=secondary_link [0x10F13 road_class=2 resolution 18]
+highway=tertiary_link [0x10F14 road_class=2 resolution 18]
+highway=residential_link [0x10F14 road_class=1 resolution 18]
+highway=service_link [0x10F14 road_class=0 resolution 18]
 
 ### Roundabouts
-highway=motorway & junction=roundabout [0x1060D resolution 18]
-highway=trunk & junction=roundabout [0x1060E resolution 18]
-highway=primary & junction=roundabout [0x1060F resolution 18]
-highway=secondary & junction=roundabout [0x10610 resolution 18]
-highway=tertiary & junction=roundabout [0x10611 resolution 18]
-highway=residential & junction=roundabout [0x10612 resolution 18]
-highway=service & junction=roundabout [0x10613 resolution 18]
+highway=motorway & junction=roundabout [0x1060D road_class=3 resolution 18]
+highway=trunk & junction=roundabout [0x1060E road_class=3 resolution 18]
+highway=primary & junction=roundabout [0x1060F road_class=2 resolution 18]
+highway=secondary & junction=roundabout [0x10610 road_class=2 resolution 18]
+highway=tertiary & junction=roundabout [0x10611 road_class=2 resolution 18]
+highway=residential & junction=roundabout [0x10612 road_class=1 resolution 18]
+highway=service & junction=roundabout [0x10613 road_class=0 resolution 18]
 
 
 ###################################################################
@@ -200,7 +231,7 @@ route=ferry {deletealltags}
 waterway=river {deletealltags}
 
 
-	
+
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 aeroway=runway [0x27 resolution 20]
 aeroway=taxiway [0x27 resolution 24]
