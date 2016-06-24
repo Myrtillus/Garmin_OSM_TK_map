@@ -113,8 +113,8 @@ highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 23-24
 
 
 ### Colors for highway=path
-highway=path & mtb:scale!=* [0x016 road_class=0 resolution 23-24 continue]
-highway=path & mtb:scale!=* [0x016 road_class=0 resolution 18-22]
+highway=path & mtb:scale!=* [0x10E13 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale!=* [0x10E13 road_class=0 resolution 18-22]
 highway=path & mtb:scale="0-" [0x10E00 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
 highway=path & mtb:scale=0 [0x10E01 road_class=0 resolution 23-24 continue]
@@ -133,8 +133,8 @@ highway=path & mtb:scale=5 [0x10E07 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 
 ### Colors for highway=track
-highway=track & mtb:scale!=* [0x015 road_class=0 resolution 23-24 continue]
-highway=track & mtb:scale!=* [0x015 road_class=0 resolution 18-22]
+highway=track & mtb:scale!=* [0x10E14 road_class=0 resolution 23-24 continue]
+highway=track & mtb:scale!=* [0x10E14 road_class=0 resolution 18-22]
 highway=track & mtb:scale="0-" [0x10E08 road_class=0 resolution 23-24 continue]
 highway=track & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
 highway=track & mtb:scale=0 [0x10E09 road_class=0 resolution 23-24 continue]
@@ -153,8 +153,8 @@ highway=track & mtb:scale=5 [0x10E0F road_class=0 resolution 23-24 continue]
 highway=track & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 
 ### Colors for highway=footway
-highway=footway & mtb:scale!=* [0x016 road_class=0 resolution 23-24 continue]
-highway=footway & mtb:scale!=* [0x016 road_class=0 resolution 18-22]
+highway=footway & mtb:scale!=* [0x10E13 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale!=* [0x10E13 road_class=0 resolution 18-22]
 highway=footway & mtb:scale="0-" [0x10E00 road_class=0 resolution 23-24 continue]
 highway=footway & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
 highway=footway & mtb:scale=0 [0x10E01 road_class=0 resolution 23-24 continue]
@@ -238,21 +238,23 @@ highway=service & junction=roundabout [0x10613 road_class=0 resolution 22-24]
 ### Alternative linestyles for roads when zoomed out
 ###################################################################
 
-highway=motorway [0x1060D resolution 24 road_class=3 continue]
+highway=motorway [0x01 resolution 24 road_class=3 continue]
 highway=motorway [0x10F10 resolution 0-23 road_class=3]
-highway=trunk [0x1060E resolution 24 road_class=3 continue]
+highway=trunk [0x02 resolution 24 road_class=3 continue]
 highway=trunk [0x10F11 resolution 0-23 road_class=3]
-highway=primary [0x1060F resolution 24 road_class=2 continue]
+highway=primary [0x03 resolution 24 road_class=2 continue]
 highway=primary [0x10F12 resolution 17-23 road_class=2]
-highway=secondary [0x10610 resolution 24 road_class=2 continue]
+highway=secondary [0x04 resolution 24 road_class=2 continue]
 highway=secondary [0x10F13 resolution 17-23 road_class=2]
-highway=tertiary [0x10611 resolution 24 road_class=2 continue]
+highway=tertiary [0x05 resolution 24 road_class=2 continue]
 highway=tertiary [0x10F14 resolution 18-23 road_class=2]
-highway=residential [0x10612 resolution 24 road_class=1 continue]
+highway=residential [0x06 resolution 24 road_class=1 continue]
 highway=residential [0x10F15 resolution 20-23 road_class=1]
-highway=service [0x10613 resolution 24 road_class=0 continue]
+highway=service [0x07 resolution 24 road_class=0 continue]
 highway=service [0x10F16 resolution 21-23 road_class=0]
-
+highway=unclassified [0x07 resolution 24 road_class=0 continue]
+highway=unclassified [0x10F16 resolution 21-23 road_class=0]
+# unclassified roads rendered the same as serviceroads
 
 ###################################################################
 ### Walls, fences and hedges
@@ -261,6 +263,19 @@ highway=service [0x10F16 resolution 21-23 road_class=0]
 barrier=wall | barrier=fence [0x10102 resolution 24]
 barrier=hedge [0x10200 resolution 24]
 
+
+
+###################################################################
+### Natural features, powerlines etc. misc.
+###################################################################
+
+natural=coastline [0x1011A resolution 12]
+natural=cliff [0x1011B resolution 21]
+power=line [0x29 resolution 21]
+# Railway lines, note that many devices display type 0x14 only at resolution 24 
+(railway=rail | railway=tram | railway=subway | railway=narrow_gauge | railway=light_rail | railway=preserved) & !(tunnel=yes) [0x10010 resolution 18]
+railway=abandoned | railway=disused [0x10011 road_class=0 resolution 18]
+railway=platform [0x10010 resolution 18]
 
 ###################################################################
 ### Hide unnecessary lines i.e. remove their tags
@@ -358,13 +373,9 @@ leisure=track & area!=yes
 (man_made=pier | man_made=piste:halfpipe) & area!=yes
 {add highway=footway; name '${ref} ${name}' | '${ref}' | '${name}' }
 
-natural=coastline [0x11F04 resolution 12]
-power=line [0x29 resolution 21]
 
-railway=abandoned [0x0a road_class=0 road_speed=1 resolution 18]
-railway=platform [0x16 road_class=0 road_speed=0 resolution 23]
-# Railway lines, note that many devices display type 0x14 only at resolution 24 
-(railway=rail | railway=tram | railway=disused | railway=subway | railway=narrow_gauge | railway=light_rail | railway=preserved) & !(tunnel=yes) [0x10004 resolution 18]
+
+
 
 (man_made=cable|(man_made=* & man_made ~ '.*pipe.*')) & area!=yes &
 tunnel!=yes & location != underground
