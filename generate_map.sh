@@ -9,6 +9,9 @@ set -o nounset
 
 cd /home/nissiant/Garmin_OSM_TK_map
 
+# Update the style files before generation
+sudo -u nissiant git pull
+
 # TAMPERE
 #################
 #################
