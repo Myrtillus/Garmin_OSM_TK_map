@@ -66,6 +66,7 @@ highway=pedestrian & bicycle!=no {set highway=footway}
 highway=bridleway & bicycle!=no {set highway=footway}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
+bicycle=designated & mtb:scale!=* {set highway=cycleway}
 highway=cycleway {delete mtb:scale}
 highway=service [0x10613 road_class=0 resolution 22-24]
 # for some reason highway=service wasn't working with the internal type address...
