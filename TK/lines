@@ -261,7 +261,9 @@ highway=unclassified [0x10F16 resolution 21-23 road_class=0]
 ### Walls, fences and hedges
 ###################################################################
 
-barrier=wall | barrier=fence [0x10102 resolution 24]
+barrier=wall | barrier=city_wall [0x10104 resolution 24]
+barrier=retaining_wall [0x10103 resolution 22]
+barrier=fence | barrier=cable_barrier | barrier=guard_rail | barrier=handrail [0x1010D resolution 24]
 barrier=hedge [0x10200 resolution 24]
 
 
