@@ -27,6 +27,7 @@ landuse=conservation [0x05700 resolution 0-24]
 natural=land [0x10100 resolution 0-24]
 natural=wetland [0x1101C resolution 0-24]
 natural=water [0x3C00 resolution 0-24]
+landuse=allotments [0x04E00 resolution 0-24]
 
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
