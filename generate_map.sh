@@ -30,10 +30,13 @@ wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=23.2182
 java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere.osm TK.typ
 
 # copy the map file to /var/www for downloading and clean up the directory
-mv gmapsupp.img OSM_TK_MTB_map.img
-sudo chown www-data:www-data OSM_TK_MTB_map.img
-sudo mv -f OSM_TK_MTB_map.img /var/www
+mv gmapsupp.img OSM_TK_MTB_map_Tampere.img
+sudo chown www-data:www-data OSM_TK_MTB_map_Tampere.img
+sudo mv -f OSM_TK_MTB_map_Tampere.img /var/www
 rm tampere.osm
+
+# Clean the directory
+rm -f osmmap.* *.img *.pbf osmmap_license.txt
 
 
 # OULU
@@ -50,8 +53,8 @@ rm tampere.osm
 # Retrieving OSM data directly and generating map
 #################################################
 
-wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.4 ,64.6,26.5,65.33]"
-#wget -O oulu.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=24.4 ,64.6,26.5,65.33]"
+#wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
+wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=25.2 ,64.8,26.1,65.25]"
 java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880002 --description=OSM_MTB_Oulu_region --family-id=8888 --series-name="OSM MTB Oulu region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files oulu.osm TK.typ
 
 # copy the map file to /var/www for downloading
@@ -63,6 +66,6 @@ rm oulu.osm
 #################################
 
 # Clean the directory
-rm osmmap.* *.img *.pbf osmmap_license.txt
+rm -f osmmap.* *.img *.pbf osmmap_license.txt
 
 
