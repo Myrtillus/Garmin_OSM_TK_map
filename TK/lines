@@ -181,23 +181,23 @@ highway=footway & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
 highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
-highway=cycleway & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=cycleway & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
-highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface!=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as paved
 highway=cycleway & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=cycleway & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=cycleway & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface=paved & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is specified as asphalt
 highway=cycleway & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=cycleway & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=cycleway & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & surface=asphalt & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
 
 
 # Name unnamed paths/tracks etc. based on their highwaytype or based on their mtb:scale if it exists
@@ -244,9 +244,9 @@ highway=motorway [0x10F10 resolution 0-23 road_class=3]
 highway=trunk [0x02 resolution 24 road_class=3 continue]
 highway=trunk [0x10F11 resolution 0-23 road_class=3]
 highway=primary [0x03 resolution 24 road_class=2 continue]
-highway=primary [0x10F12 resolution 17-23 road_class=2]
+highway=primary [0x10F12 resolution 18-23 road_class=2]
 highway=secondary [0x04 resolution 24 road_class=2 continue]
-highway=secondary [0x10F13 resolution 17-23 road_class=2]
+highway=secondary [0x10F13 resolution 18-23 road_class=2]
 highway=tertiary [0x05 resolution 24 road_class=2 continue]
 highway=tertiary [0x10F14 resolution 18-23 road_class=2]
 highway=residential [0x06 resolution 24 road_class=1 continue]
