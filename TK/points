@@ -28,9 +28,20 @@ noexit=Yes {set noexit=yes}
 ### Added pints
 ###################################################################
 
+### Fixmes and ending path markers
 fixme=resurvey [0x1010C]
 fixme=continue [0x1010D]
 noexit=yes [0x1010E]
+
+drinking_water=yes [0x11506 resolution 21-24]
+
+
+
+
+
+
+
+
 
 
 
