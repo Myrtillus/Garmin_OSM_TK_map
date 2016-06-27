@@ -16,27 +16,40 @@ sudo -u nissiant git pull
 #################
 #################
 
-# Splitting the data from finland dump and generate map
-#########################################################
 
-#osmosis/bin/osmosis --read-pbf file=/var/tmp/osm/finland-latest.osm.pbf --bounding-box left=23 bottom=60.8 right=24.9 top=62.00 --write-pbf tampere_region_final.osm.pbf
-#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere_region_final.osm.pbf TK.typ
+# Retrieving OSM data and splitting to manageable size
+#######################################################
 
-# Retrieving OSM data directly and generating map
-#################################################
+# get the osm data file
 
-wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
-#wget -O tampere.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
-java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --description=OSM_MTB_Tampere_region --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files tampere.osm TK.typ
+wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
+###wget -O map.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
+
+# Split the osm file to smaller pieces
+
+java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=4096 --max-nodes=3000000 --wanted-admin-level=8
+
+# Fix the names in the template.args file descriptions
+
+python fix_names.py OSM_MTB_Tampere_region
+
+
+# Create the gmapsupp map file, NOTE THE MAPNAME HAS TO UNIQUE
+
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --family-id=8888 --series-name="OSM MTB Tampere region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files -c template.args TK.typ
+
+#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880001 --family-id=8888 --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files -c template.args TK.typ
 
 # copy the map file to /var/www for downloading and clean up the directory
+
 mv gmapsupp.img OSM_TK_MTB_map_Tampere.img
 sudo chown www-data:www-data OSM_TK_MTB_map_Tampere.img
 sudo mv -f OSM_TK_MTB_map_Tampere.img /var/www
-rm tampere.osm
+
+
 
 # Clean the directory
-rm -f osmmap.* *.img *.pbf osmmap_license.txt
+rm -f *.osm osmmap.* *.img *.pbf osmmap_license.txt template* densities* areas*
 
 
 # OULU
@@ -44,28 +57,33 @@ rm -f osmmap.* *.img *.pbf osmmap_license.txt
 #################
 
 
-
-# Splitting the data from finland dump and generate map
-#########################################################
-#osmosis/bin/osmosis --read-pbf file=/var/tmp/osm/finland-latest.osm.pbf --bounding-box left=24.4 bottom=64.6 right=26.5 top=65.33 --write-pbf oulu_region_final.osm.pbf
-#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880002 --description=OSM_MTB_Oulu_region --family-id=8888 --series-name="OSM MTB Oulu region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files oulu_region_final.osm.pbf TK.typ
-
 # Retrieving OSM data directly and generating map
 #################################################
 
-#wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
-wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=25.2 ,64.8,26.1,65.25]"
-java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880002 --description=OSM_MTB_Oulu_region --family-id=8888 --series-name="OSM MTB Oulu region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files oulu.osm TK.typ
+# Get the osm datafile
+
+wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
+
+# Split the osm file to smaller pieces
+
+java -jar -Xmx1000m splitter.jar oulu.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=2048 --max-nodes=1000000 --wanted-admin-level=8
+
+# Fix the names in the template.args file descriptions
+
+python fix_names.py OSM_MTB_Oulu_region
+
+# Create the gmapsupp map file, NOTE THE MAPNAME HAS TO UNIQUE
+
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880002 --family-id=8888 --series-name="OSM MTB Oulu region" --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files -c template.args TK.typ
 
 # copy the map file to /var/www for downloading
 mv gmapsupp.img OSM_TK_MTB_map_Oulu.img
 sudo chown www-data:www-data OSM_TK_MTB_map_Oulu.img
 sudo mv -f OSM_TK_MTB_map_Oulu.img /var/www
-rm oulu.osm
 
 #################################
 
 # Clean the directory
-rm -f osmmap.* *.img *.pbf osmmap_license.txt
+rm -f *.osm osmmap.* *.img *.pbf osmmap_license.txt template* densities* areas*
 
 
