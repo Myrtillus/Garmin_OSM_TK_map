@@ -28,10 +28,10 @@ highway="footway;track" {set highway=footway}
 highway="residential; track" {set highway=track}
 highway="residential;track" {set highway=track}
 highway=residental {set highway=residential}
-highway="footway; cycleway" {set highway=cycleway; set segregated=no}
-highway="footway;cycleway" {set highway=cycleway; set segregated=no}
-highway="cycleway; footway" {set highway=cycleway; set segregated=no}
-highway="cycleway;footway" {set highway=cycleway; set segregated=no}
+highway="footway; cycleway" {set highway=cycleway}
+highway="footway;cycleway" {set highway=cycleway}
+highway="cycleway; footway" {set highway=cycleway}
+highway="cycleway;footway" {set highway=cycleway}
 highway=cycleroad {set highway=cycleway}
 highway=cyclestreet {set highway=cycleway}
 bicycle=nope {set bicycle=no}
@@ -94,12 +94,11 @@ width="1.0m" {set width="1.0"}
 ### highway conversions, simplification etc.
 ###################################################################
 
-highway=pedestrian & bicycle!=no {set highway=footway}
-highway=bridleway & bicycle!=no {set highway=footway}
+highway=pedestrian & bicycle!=no {set highway=path}
+highway=bridleway & bicycle!=no {set highway=path}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
 bicycle=designated & mtb:scale!=* {set highway=cycleway}
-highway=cycleway {delete mtb:scale}
 highway=service [0x10613 road_class=0 resolution 22-24]
 # for some reason highway=service wasn't working with the internal type address...
 
@@ -171,7 +170,7 @@ highway=path & mtb:scale=3 [0x10E1B road_class=0 resolution 18-22]
 highway=path & mtb:scale=4 & (width>0.5 | width!=*) [0x10E06 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale=4 & width<=0.5 [0x10F04 road_class=0 resolution 24 continue]
 highway=path & mtb:scale=4 [0x10E1C road_class=0 resolution 18-22]
-highway=path & mtb:scale=5 & (width>0.5 | width!=*) [0x10E06 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale=5 & (width>0.5 | width!=*) [0x10E07 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale=5 & width<=0.5 [0x10F04 road_class=0 resolution 24 continue]
 highway=path & mtb:scale=5 [0x10E1C road_class=0 resolution 18-22]
 
@@ -200,7 +199,7 @@ highway=footway & mtb:scale=3 [0x10E1B road_class=0 resolution 18-22]
 highway=footway & mtb:scale=4 & (width>0.5 | width!=*) [0x10E06 road_class=0 resolution 23-24 continue]
 highway=footway & mtb:scale=4 & width<=0.5 [0x10E04 road_class=0 resolution 24 continue]
 highway=footway & mtb:scale=4 [0x10E1C road_class=0 resolution 18-22]
-highway=footway & mtb:scale=5 & (width>0.5 | width!=*) [0x10E06 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale=5 & (width>0.5 | width!=*) [0x10E07 road_class=0 resolution 23-24 continue]
 highway=footway & mtb:scale=5 & width<=0.5 [0x10E04 road_class=0 resolution 24 continue]
 highway=footway & mtb:scale=5 [0x10E1C road_class=0 resolution 18-22]
 
@@ -233,9 +232,9 @@ highway=track & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 ###################################################################
 
 highway=cycleway & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=cycleway & mtb:scale!=* [0x10119 road_class=0 resolution 18-22]
-highway=footway & bicycle!=no & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=footway & bicycle!=no & mtb:scale!=* [0x10119 road_class=0 resolution 18-22]
+highway=cycleway & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
+#highway=footway & bicycle!=no & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
+#highway=footway & bicycle!=no & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
 # highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
