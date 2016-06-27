@@ -232,10 +232,10 @@ highway=track & mtb:scale=5 [0x10E1D road_class=0 resolution 18-22]
 ### Cycleways
 ###################################################################
 
-highway=cycleway & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
-highway=cycleway & mtb:scale!=* [0x10118 road_class=0 resolution 20-22]
-highway=footway & bicycle!=no & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
-highway=footway & bicycle!=no & mtb:scale!=* [0x10118 road_class=0 resolution 20-22]
+highway=cycleway & mtb:scale!=* [0x10F06 road_class=0 resolution 23-24 continue]
+highway=cycleway & mtb:scale!=* [0x10F06 road_class=0 resolution 18-22]
+highway=footway & bicycle!=no & mtb:scale!=* [0x10F06 road_class=0 resolution 23-24 continue]
+highway=footway & bicycle!=no & mtb:scale!=* [0x10F06 road_class=0 resolution 18-22]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
 # highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
