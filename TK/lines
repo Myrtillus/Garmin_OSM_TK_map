@@ -101,6 +101,7 @@ highway=bicycle_road {set highway=cycleway}
 bicycle=designated & mtb:scale!=* {set highway=cycleway}
 highway=service [0x10613 road_class=0 resolution 22-24]
 # for some reason highway=service wasn't working with the internal type address...
+highway=footway & ( footway=sidewalk | sidewalk=yes) & (bicycle!=* | bicycle=no | bicycle=nope) & (cycleway!=* | cycleway=no) & mtb:scale!=* {delete highway}
 
 ###################################################################
 ### mtb:scale styles for paths/tracks/footways
