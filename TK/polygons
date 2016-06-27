@@ -28,6 +28,7 @@ natural=land [0x10100 resolution 0-24]
 natural=wetland [0x1101C resolution 0-24]
 natural=water [0x3C00 resolution 0-24]
 landuse=allotments [0x04E00 resolution 0-24]
+amenity=parking [0x05 resolution 21]
 
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
@@ -62,7 +63,7 @@ place=islet & name=* [0x53 resolution 20]
 # squares and plazas
 highway=pedestrian & area=yes [0x17 resolution 22]
 # other highways that have area=yes set must be parking lots
-highway=* & area=yes [0x05 resolution 22]
+highway=* & area=yes [0x05 resolution 21]
 
 historic=museum | historic=memorial [0x1e resolution 21]
 historic=archaeological_site | historic=ruins [0x1e resolution 21]
