@@ -329,13 +329,13 @@ barrier=hedge [0x10200 resolution 24]
 ### Defining all the regular road types
 ###################################################################
 
-highway=motorway [0x10D04 road_class=3 resolution 0-24]
-highway=trunk [0x10D05 road_class=3 resolution 0-24]
-highway=primary [0x10D06 road_class=2 resolution 22-24]
-highway=secondary [0x10D07 road_class=2 resolution 22-24]
-highway=tertiary [0x10D08 road_class=2 resolution 22-24]
-highway=residential [0x10D09 road_class=1 resolution 22-24]
-highway=service [0x10D10 road_class=0 resolution 22-24]
+#highway=motorway [0x10D04 road_class=3 resolution 0-24]
+#highway=trunk [0x10D05 road_class=3 resolution 0-24]
+#highway=primary [0x10D06 road_class=2 resolution 22-24]
+#highway=secondary [0x10D07 road_class=2 resolution 22-24]
+#highway=tertiary [0x10D08 road_class=2 resolution 22-24]
+#highway=residential [0x10D09 road_class=1 resolution 22-24]
+#highway=service [0x10D10 road_class=0 resolution 22-24]
 
 ###################################################################
 ### Natural features, powerlines etc. misc.
