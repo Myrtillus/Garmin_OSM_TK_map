@@ -22,8 +22,8 @@ sudo -u nissiant git pull
 
 # get the osm data file
 
-wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
-###wget -O map.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=23.2182,61.1850,24.3059,61.7881]"
+#wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
+wget -O tampere.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
 
 # Split the osm file to smaller pieces
 
@@ -62,7 +62,8 @@ rm -f *.osm osmmap.* *.img *.pbf osmmap_license.txt template* densities* areas*
 
 # Get the osm datafile
 
-wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
+#wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
+wget -O oulu.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=24.5 ,64.7,26.2,65.25]"
 
 # Split the osm file to smaller pieces
 
@@ -79,7 +80,7 @@ java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis -
 # copy the map file to /var/www for downloading
 mv gmapsupp.img tk_oulu.img
 sudo chown www-data:www-data tk_oulu.img
-sudo mv -f tk_oulu /var/www
+sudo mv -f tk_oulu.img /var/www
 
 #################################
 
