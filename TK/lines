@@ -148,9 +148,9 @@ highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 23-24
 ### Includes width check. Paths where width is not specified use the wider line type
 
 
-highway=path & mtb:scale!=* & (width>0.5 | width!=*) [0x10E13 road_class=0 resolution 23-24 continue]
+highway=path & mtb:scale!=* & (width>0.5 | width!=*) [0x10E14 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale!=* & width<=0.5 [0x10D03 road_class=0 resolution 24 continue]
-highway=path & mtb:scale!=* [0x10E13 road_class=0 resolution 18-22]
+highway=path & mtb:scale!=* [0x10D03 road_class=0 resolution 18-22]
 highway=path & mtb:scale="0-" & (width>0.5 | width!=*) [0x10E00 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale="0-" & width<=0.5 [0x10E1E road_class=0 resolution 24 continue]
 highway=path & mtb:scale="0-" [0x10E16 road_class=0 resolution 18-22]
@@ -177,7 +177,7 @@ highway=path & mtb:scale=5 & width<=0.5 [0x10F04 road_class=0 resolution 24 cont
 highway=path & mtb:scale=5 [0x10E1C road_class=0 resolution 18-22]
 
 ### Colors for highway=footway
-highway=footway & mtb:scale!=* & (width>0.5 | width!=*) [0x10E13 road_class=0 resolution 23-24 continue]
+highway=footway & mtb:scale!=* & (width>0.5 | width!=*) [0x10E14 road_class=0 resolution 23-24 continue]
 highway=footway & mtb:scale!=* & width<=0.5 [0x10D03 road_class=0 resolution 24 continue]
 highway=footway & mtb:scale!=* [0x10D03 road_class=0 resolution 18-22]
 highway=footway & mtb:scale="0-" & (width>0.5 | width!=*) [0x10E00 road_class=0 resolution 23-24 continue]
