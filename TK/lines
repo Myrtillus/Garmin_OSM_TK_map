@@ -101,9 +101,8 @@ highway=bicycle_road {set highway=cycleway}
 bicycle=designated & mtb:scale!=* {set highway=cycleway}
 highway=service [0x10613 road_class=0 resolution 22-24]
 # for some reason highway=service wasn't working with the internal type address...
-highway=footway & ( footway=sidewalk | sidewalk=yes) & (bicycle!=* | bicycle=no | bicycle=nope) & (cycleway!=* | cycleway=no) & mtb:scale!=* {delete highway}
 highway=construction [0x10E15 resolution 22-24]
-highway=footway {set highway=path}
+#highway=footway {set highway=path}
 
 ###################################################################
 ### mtb:scale styles for paths/tracks/footways
@@ -150,6 +149,8 @@ highway=path & mtb:scale=5 & width<=0.5 & surface!=mud & surface!=wood [0x10F04 
 highway=path & mtb:scale=5 & surface!=mud & surface!=wood [0x10E1C road_class=0 resolution 18-22]
 
 ### Colors for highway=footway
+highway=footway & (footway=sidewalk | sidewalk=yes | bicycle=no | bicycle=nope | bicycle!=*) & (cycleway!=* | cycleway=no) & mtb:scale!=* [0x10118 resolution 23-24]
+
 highway=footway & mtb:scale!=* & (width>0.5 | width!=*) [0x10E14 road_class=0 resolution 23-24 continue]
 highway=footway & mtb:scale!=* & width<=0.5 [0x10D03 road_class=0 resolution 24 continue]
 highway=footway & mtb:scale!=* [0x10D03 road_class=0 resolution 18-22]
@@ -369,7 +370,7 @@ power=line [0x29 resolution 21]
 (railway=rail | railway=tram | railway=subway | railway=narrow_gauge | railway=light_rail | railway=preserved) & !(tunnel=yes) [0x10010 resolution 18]
 railway=abandoned | railway=disused [0x10011 road_class=0 resolution 18]
 railway=platform [0x10010 resolution 18]
-
+highway=steps [0x08 resolution 23-24]
 
 
 ###################################################################
