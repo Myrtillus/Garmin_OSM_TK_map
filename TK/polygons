@@ -29,7 +29,7 @@ natural=wetland [0x1101C resolution 0-24]
 natural=water [0x3C00 resolution 0-24]
 landuse=allotments [0x04E00 resolution 0-24]
 amenity=parking [0x05 resolution 21]
-natural=bare_rock [0x05300 resolution 0-24
+natural=bare_rock [0x05300 resolution 0-24]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
