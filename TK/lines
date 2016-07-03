@@ -104,21 +104,32 @@ highway=service [0x10613 road_class=0 resolution 22-24]
 highway=construction [0x10E15 resolution 22-24]
 #highway=footway {set highway=path}
 
+
+
+###################################################################
+### Cycleways
+###################################################################
+
+# Cycleways with mtb:scale higher than 0 treated as highway=track
+highway=cycleway & (mtb:scale="0+" | mtb:scale=1 | mtb:scale=2 | mtb:scale=3 | mtb:scale=4 | mtb:scale=5) {set highway=track}
+
+highway=cycleway & (mtb:scale!=* | mtb:scale="0-" | mtb:scale=0) [0x10119 road_class=0 resolution 23-24 continue]
+highway=cycleway & (mtb:scale!=* | mtb:scale="0-" | mtb:scale=0) [0x10E16 road_class=0 resolution 20-22]
+
+
+
 ###################################################################
 ### mtb:scale styles for paths/tracks/footways
 ###################################################################
-###Paths colored based on mtb:scale or cycleway key. Solid color lines for zoomed out view to reduce clutter, point is to see what kind of paths are (/have been tagged) where.
+###Paths colored based on mtb:scale or cycleway key. Solid color lines for zoomed out view to reduce clutter, point is to see what kind of paths are (/have been tagged) where
 
 ### Forbidden paths/tracks/footways, must be before general mtb:scale rules (?). Disappear from view when zoomed out.
 highway=path & mtb:scale="-1" [0x10E10 resolution 23-24]
 highway=track & mtb:scale="-1" [0x10E11 resolution 23-24]
 highway=footway & mtb:scale="-1" [0x10E10 resolution 23-24]
 
-
-
 ### Colors for highway=path
 ### Includes width check. Paths where width is not specified use the wider line type
-
 
 highway=path & mtb:scale!=* & (width>0.5 | width!=*) & surface!=mud & surface!=wood & surface!=mud & surface!=wood [0x10E14 road_class=0 resolution 23-24 continue]
 highway=path & mtb:scale!=* & (width<=0.5 | trail_visibility=bad | trail_visibility=horrible | trail_visibility=no) & surface!=mud & surface!=wood [0x10D03 road_class=0 resolution 24 continue]
@@ -148,7 +159,9 @@ highway=path & mtb:scale=5 & (width>0.5 | width!=*) & surface!=mud & surface!=wo
 highway=path & mtb:scale=5 & (width<=0.5 | trail_visibility=bad | trail_visibility=horrible | trail_visibility=no) & surface!=mud & surface!=wood [0x10F04 road_class=0 resolution 24 continue]
 highway=path & mtb:scale=5 & surface!=mud & surface!=wood [0x10E1C road_class=0 resolution 18-22]
 
+
 ### Colors for highway=footway
+### Different line style for footways that don't allow cycling (with the assumtion that paths containing the mtb:scale tag allow cycling)
 highway=footway & (footway=sidewalk | sidewalk=yes | bicycle=no | bicycle=nope | bicycle!=*) & (cycleway!=* | cycleway=no) & mtb:scale!=* [0x10118 resolution 23-24]
 
 highway=footway & mtb:scale!=* & (width>0.5 | width!=*) [0x10E14 road_class=0 resolution 23-24 continue]
@@ -248,15 +261,6 @@ highway=footway & mtb:scale=5 & surface=mud [0x131 road_class=0 resolution 23-24
 
 #############################################################################################
 
-
-###################################################################
-### Cycleways
-###################################################################
-
-highway=cycleway & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-highway=cycleway & mtb:scale!=* [0x10E16 road_class=0 resolution 20-22]
-#highway=footway & bicycle!=no & mtb:scale!=* [0x10119 road_class=0 resolution 23-24 continue]
-#highway=footway & bicycle!=no & mtb:scale!=* [0x10E16 road_class=0 resolution 18-22]
 
 ### Linetypes for cycleways (and footpaths that don't forbid cycling) without mtb:scale tags when surface is not specified as paved
 # highway=cycleway & surface!=paved & mtb:scale!=* [0x10118 road_class=0 resolution 23-24 continue]
