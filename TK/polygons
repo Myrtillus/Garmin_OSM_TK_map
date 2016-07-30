@@ -18,7 +18,7 @@ wetland=reedbed [0x05600 resolution 12]
 
 
 ###################################################################
-### Ground colors based on landuse
+### Ground colors based on landuse etc.
 ###################################################################
 
 landuse=residential [0x0200 resolution 0-24]
@@ -33,6 +33,8 @@ natural=water [0x3C00 resolution 0-24]
 landuse=allotments [0x04E00 resolution 0-24]
 amenity=parking [0x05 resolution 21]
 natural=bare_rock [0x05300 resolution 0-24]
+landuse=grass [0x1101A resolution 0-24]
+natural=grassland [0x05400 resolution 0-24]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
