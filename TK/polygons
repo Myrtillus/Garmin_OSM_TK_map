@@ -34,7 +34,7 @@ landuse=allotments [0x04E00 resolution 0-24]
 amenity=parking [0x05 resolution 21]
 natural=bare_rock [0x05300 resolution 0-24]
 landuse=grass [0x11018 resolution 0-24]
-natural=grassland [0x05400 resolution 0-24]
+natural=grassland [0x5400 resolution 0-24]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
@@ -54,7 +54,7 @@ leisure=ice_rink [0x19 resolution 22]
 leisure=nature_reserve [0x16 resolution 19]
 leisure=park [0x17 resolution 20]
 leisure=pitch [0x19 resolution 21]
-leisure=playground [0x17 resolution 22]
+leisure=playground [0x01B00 resolution 22]
 leisure=recreation_ground [0x19 resolution 21]
 leisure=sports_center | leisure=sports_centre [0x19 resolution 20]
 leisure=stadium [0x19 resolution 20]

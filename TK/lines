@@ -338,7 +338,6 @@ highway=tertiary & junction=roundabout [0x10D08 road_class=2 resolution 22-24]
 highway=residential & junction=roundabout [0x10D09 road_class=1 resolution 22-24]
 highway=service & junction=roundabout [0x10D10 road_class=0 resolution 22-24]
 
-
 ###################################################################
 ### Alternative linestyles for roads when zoomed out
 ###################################################################
@@ -355,11 +354,22 @@ highway=tertiary [0x05 resolution 24 road_class=2 continue]
 highway=tertiary [0x10F14 resolution 18-23 road_class=2]
 highway=residential [0x06 resolution 24 road_class=1 continue]
 highway=residential [0x10F15 resolution 20-23 road_class=1]
-highway=service [0x07 resolution 24 road_class=0 continue]
-highway=service [0x10F16 resolution 21-23 road_class=0]
+highway=service & service!=driveway & service!=alley & service!=emergency_access & service!=drive-through & service!=parking_aisle [0x07 resolution 24 road_class=0 continue]
+highway=service & service!=driveway & service!=alley & service!=emergency_access & service!=drive-through & service!=parking_aisle [0x10D10 resolution 21-23 road_class=0]
 highway=unclassified [0x07 resolution 24 road_class=0 continue]
 highway=unclassified [0x10F16 resolution 21-23 road_class=0]
 # unclassified roads rendered the same as serviceroads
+
+###################################################################
+### Different kinds of service roads
+###################################################################
+
+highway=service & service=driveway [0x10D11 resolution 23 road_class=0]
+highway=service & service=alley [0x10D11 resolution 23 road_class=0]
+highway=service & service=emergency_access [0x10D11 resolution 23 road_class=0]
+highway=service & service=drive-through [0x10D11 resolution 23 road_class=0]
+highway=service & service=parking_aisle [0x10D12 resolution 24]
+
 
 ###################################################################
 ### Walls, fences and hedges
