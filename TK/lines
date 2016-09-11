@@ -401,6 +401,7 @@ natural=coastline [0x1011A resolution 12]
 natural=cliff [0x1011B resolution 21]
 waterway=stream [0x1011C resolution 23-24]
 power=line [0x29 resolution 21]
+power=minor_line [0x02A resolution 23-24]
 # Railway lines, note that many devices display type 0x14 only at resolution 24 
 (railway=rail | railway=tram | railway=subway | railway=narrow_gauge | railway=light_rail | railway=preserved) & !(tunnel=yes) [0x10010 resolution 18]
 railway=abandoned | railway=disused [0x10011 road_class=0 resolution 18]

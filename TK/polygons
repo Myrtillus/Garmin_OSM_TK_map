@@ -14,8 +14,7 @@
 
 natural=bay {set natural=water}
 wetland=reedbed [0x05600 resolution 12]
-
-
+natural=scrub & landuse=forest {delete landuse}
 
 ###################################################################
 ### Ground colors based on landuse etc.
@@ -36,6 +35,8 @@ natural=bare_rock [0x05300 resolution 0-24]
 landuse=grass [0x11018 resolution 0-24]
 natural=grassland [0x5400 resolution 0-24]
 landuse=forest [0x5000 resolution 0-24]
+natural=scrub [0x11017 resolution 0-24]
+landuse=farmland [0x11019 resolution 0-24]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
