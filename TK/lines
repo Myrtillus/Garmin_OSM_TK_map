@@ -95,6 +95,7 @@ width="1.0m" {set width="1.0"}
 ### highway conversions, simplification etc.
 ###################################################################
 
+highway=construction {deletealltags; add highway=construction} [0x10D13 resolution 22-24]
 highway=pedestrian & bicycle!=no {set highway=path}
 highway=bridleway & bicycle!=no {set highway=path}
 highway=living_street {set highway=residential}
