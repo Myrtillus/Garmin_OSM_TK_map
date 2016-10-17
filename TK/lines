@@ -35,6 +35,8 @@ highway="cycleway;footway" {set highway=cycleway}
 highway=cycleroad {set highway=cycleway}
 highway=cyclestreet {set highway=cycleway}
 bicycle=nope {set bicycle=no}
+highway=pedestrian & area!=yes & bicycle!=no {set highway=cycleway}
+highway=pedestrian & area!=yes & bicycle=no {set highway=footway}
 
 ### Convert used tags to lowercase
 Highway=* & highway!=* {set highway='${Highway}'}
