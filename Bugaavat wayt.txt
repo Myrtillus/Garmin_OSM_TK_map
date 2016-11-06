@@ -1,0 +1,6 @@
+http://www.openstreetmap.org/way/122251134
+highway 	track
+mtb:scale 	0
+surface 	mud
+tracktype 	grade4
+
