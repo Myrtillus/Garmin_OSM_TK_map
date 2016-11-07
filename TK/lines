@@ -36,8 +36,8 @@ highway=cycleroad {set highway=cycleway}
 highway=cyclestreet {set highway=cycleway}
 bicycle=nope {set bicycle=no}
 highway=pedestrian & area!=yes & bicycle!=no {set highway=cycleway}
-highway=pedestrian & area!=yes & bicycle=no {set highway=footway}
 bicycle=designated & highway=* {set highway=cycleway}
+cycleway=track {set highway=cycleway}
 
 ### Convert used tags to lowercase
 Highway=* & highway!=* {set highway='${Highway}'}
@@ -60,7 +60,6 @@ fotway=* & highway!=* {set footway='${fotway}'}
 highway=residental {set highway=residential}
 visibility=* & trail_visibility!=* {set trail_visibility='${visibility}'}
 note=* {delete note}
-
 
 ### Commas to periods, removing incorrectly placed "m" (should have a space)
 width="0,1" {set width="0.1"}
@@ -106,13 +105,15 @@ highway=bridleway & bicycle!=no {set highway=path}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
 bicycle=designated & mtb:scale=no {set highway=cycleway}
-#highway=service [0x10613 road_class=0 resolution 22-24]
-# for some reason highway=service wasn't working with the internal type address...
 mtb:scale="0-" | mtb:scale="0+" {set mtb:scale=0}
+mtb:scale="1-" | mtb:scale="1+" {set mtb:scale=1}
+mtb:scale="2-" | mtb:scale="2+" {set mtb:scale=2}
+mtb:scale="3-" | mtb:scale="3+" {set mtb:scale=3}
+mtb:scale="4-" | mtb:scale="4+" {set mtb:scale=4}
+mtb:scale="5-" | mtb:scale="5+" {set mtb:scale=5}
 highway=* & mtb:scale!=* {set mtb:scale=no}
 trail_visibility=bad | trail_visibility=horrible | trail_visibility=no {delete trail_visibility; set bad_vis=yes}
 surface!=mud {delete surface}
-
 
 ###################################################################
 ### Cycleways
@@ -124,7 +125,23 @@ highway=cycleway & (mtb:scale=no | mtb:scale=0) [0x10E16 road_class=0 resolution
 # Cycleways with mtb:scale higher than 0 treated as highway=track
 highway=cycleway & (mtb:scale=1 | mtb:scale=2 | mtb:scale=3 | mtb:scale=4 | mtb:scale=5) {set highway=track}
 
+###################################################################
+### Footpaths not permitted for bicycles
+###################################################################
 
+highway=pedestrian & area!=yes & bicycle=no {set highway=nocycle}
+highway=footway & bicycle=no {set highway=nocycle}
+highway=footpath & bicycle=no {set highway=nocycle}
+highway=path & bicycle=no {set highway=nocycle}
+highway=track & bicycle=no {set highway=nocycle}
+highway=sidewalk {set highway=nocycle}
+
+highway=footway & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
+highway=footpath & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
+highway=path & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
+highway=track & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
+
+highway=nocycle [0x10118 road_class=0 resolution 23-24]
 
 
 #########################################################################################################################################################################################################
