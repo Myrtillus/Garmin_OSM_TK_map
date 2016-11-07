@@ -135,7 +135,6 @@ highway=footpath & bicycle=no {set highway=nocycle}
 highway=path & bicycle=no {set highway=nocycle}
 highway=track & bicycle=no {set highway=nocycle}
 highway=sidewalk {set highway=nocycle}
-
 highway=footway & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
 highway=footpath & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
 highway=path & (foot=designated | foot=yes) & bicycle!=designated {set highway=nocycle}
