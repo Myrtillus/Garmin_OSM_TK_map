@@ -9,6 +9,12 @@
 # for more information.
 
 
+##############################################################################################################################
+### skiing tracks forbidden for winter
+##############################################################################################################################
+
+highway=* & mtb:winter=no & (ski=designated | piste:difficulty=* | piste:grooming=* | piste:lit=* | piste:oneway=* | piste:priority=* | piste:type=*) {deletealltags; set highway=piste}
+highway=piste [0x10F06 resolution 23-24]
 
 ###################################################################
 ### Spellcheck
