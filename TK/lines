@@ -9,6 +9,13 @@
 # for more information.
 
 
+##############################################################################################################################
+### skiing tracks forbidden for winter
+##############################################################################################################################
+
+mtb:winter="-1" {set mtb:winter=no}
+highway=* & mtb:winter=no & (ski=designated | piste:difficulty=* | piste:grooming=* | piste:lit=* | piste:oneway=* | piste:priority=* | piste:type=*) {deletealltags; set highway=piste}
+highway=piste [0x10F06 resolution 23-24]
 
 ###################################################################
 ### Spellcheck
@@ -130,15 +137,19 @@ highway=cycleway & (mtb:scale=1 | mtb:scale=2 | mtb:scale=3 | mtb:scale=4 | mtb:
 ###################################################################
 
 highway=pedestrian & area!=yes & bicycle=no & mtb:scale!=* {set highway=nocycle}
-highway=footway & bicycle=no & mtb:scale!=* {set highway=nocycle}
-highway=footpath & bicycle=no & mtb:scale!=* {set highway=nocycle}
-highway=path & bicycle=no & mtb:scale!=* {set highway=nocycle}
-highway=track & bicycle=no & mtb:scale!=* {set highway=nocycle}
+# highway=footway & bicycle=no & mtb:scale=no {set highway=nocycle}
+# highway=footpath & bicycle=no & mtb:scale=no {set highway=nocycle}
+highway=path & bicycle=no & mtb:scale=no {set highway=nocycle}
+highway=track & bicycle=no & mtb:scale=no {set highway=nocycle}
 highway=sidewalk {set highway=nocycle}
-highway=footway & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale!=* {set highway=nocycle}
-highway=footpath & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale!=* {set highway=nocycle}
-highway=path & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale!=* {set highway=nocycle}
-highway=track & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale!=* {set highway=nocycle}
+# highway=footway & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+# highway=footpath & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+highway=path & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+highway=track & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+
+### Simplified footway rules, everything without bicycle designation or mtb:scale marked as footway.
+highway=footway & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+highway=footpath & bicycle!=designated & mtb:scale=no {set highway=nocycle}
 
 highway=nocycle [0x10118 road_class=0 resolution 23-24]
 
