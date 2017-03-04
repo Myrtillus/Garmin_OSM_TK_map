@@ -189,13 +189,13 @@ highway=path & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation 
 highway=path & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x10E05 road_class=0 resolution 23-24]
 highway=path & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 					[0x10F03 road_class=0 resolution 24]
 
-highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x10E1C road_class=0 resolution 18-22 continue]
-highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x10E06 road_class=0 resolution 23-24]
-highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 					[0x10F04 road_class=0 resolution 24]
+highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x100 road_class=0 resolution 18-22 continue]
+highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x101 road_class=0 resolution 23-24]
+highway=path & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 					[0x102 road_class=0 resolution 24]
 
-highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x10E1D road_class=0 resolution 18-22 continue]
-highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x10E07 road_class=0 resolution 23-24]
-highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 					[0x10F05 road_class=0 resolution 24]
+highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x103 road_class=0 resolution 18-22 continue]
+highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 		[0x104 road_class=0 resolution 23-24]
+highway=path & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 					[0x105 road_class=0 resolution 24]
 
 
 ### footways: farzoom, nearzoom, narrow
@@ -219,13 +219,13 @@ highway=footway & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetati
 highway=footway & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x10E05 road_class=0 resolution 23-24]
 highway=footway & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 				[0x10F03 road_class=0 resolution 24]
 
-highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x10E1C road_class=0 resolution 18-22 continue]
-highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x10E06 road_class=0 resolution 23-24]
-highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 				[0x10F04 road_class=0 resolution 24]
+highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x100 road_class=0 resolution 18-22 continue]
+highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x101 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 				[0x102 road_class=0 resolution 24]
 
-highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x10E1D road_class=0 resolution 18-22 continue]
-highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x10E07 road_class=0 resolution 23-24]
-highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 				[0x10F05 road_class=0 resolution 24]
+highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x103 road_class=0 resolution 18-22 continue]
+highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width>0.5 | width!=*) 	[0x104 road_class=0 resolution 23-24]
+highway=footway & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation & (width<=0.5) 				[0x105 road_class=0 resolution 24]
 
 
 ###tracks: farzoom, nearzoom
@@ -244,11 +244,11 @@ highway=track & mtb:scale=2 & bad_vis!=yes & surface!=mud & obstacle!=vegetation
 highway=track & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E1B road_class=0 resolution 18-22 continue]
 highway=track & mtb:scale=3 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E0D road_class=0 resolution 23-24]
 
-highway=track & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E1C road_class=0 resolution 18-22 continue]
-highway=track & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E0E road_class=0 resolution 23-24]
+highway=track & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x106 road_class=0 resolution 18-22 continue]
+highway=track & mtb:scale=4 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x107 road_class=0 resolution 23-24]
 
-highway=track & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E1D road_class=0 resolution 18-22 continue]
-highway=track & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x10E0F road_class=0 resolution 23-24]
+highway=track & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x108 road_class=0 resolution 18-22 continue]
+highway=track & mtb:scale=5 & bad_vis!=yes & surface!=mud & obstacle!=vegetation						  		[0x109 road_class=0 resolution 23-24]
 
 
 ##############################################################################################################################
