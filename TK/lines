@@ -42,6 +42,7 @@ highway="cycleway;footway" {set highway=cycleway}
 highway=cycleroad {set highway=cycleway}
 highway=cyclestreet {set highway=cycleway}
 bicycle=nope {set bicycle=no}
+bicycle=designated {set bicycle=yes}
 highway=pedestrian & area!=yes & bicycle!=no {set highway=cycleway}
 bicycle=designated & highway=* {set highway=cycleway}
 cycleway=track {set highway=cycleway}
@@ -111,7 +112,7 @@ highway=pedestrian & bicycle!=no {set highway=path}
 highway=bridleway & bicycle!=no {set highway=path}
 highway=living_street {set highway=residential}
 highway=bicycle_road {set highway=cycleway}
-bicycle=designated & mtb:scale=no {set highway=cycleway}
+bicycle=yes & mtb:scale=no {set highway=cycleway}
 mtb:scale="0-" | mtb:scale="0+" {set mtb:scale=0}
 mtb:scale="1-" | mtb:scale="1+" {set mtb:scale=1}
 mtb:scale="2-" | mtb:scale="2+" {set mtb:scale=2}
@@ -142,14 +143,14 @@ highway=pedestrian & area!=yes & bicycle=no & mtb:scale!=* {set highway=nocycle}
 highway=path & bicycle=no & mtb:scale=no {set highway=nocycle}
 highway=track & bicycle=no & mtb:scale=no {set highway=nocycle}
 highway=sidewalk {set highway=nocycle}
-# highway=footway & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
-# highway=footpath & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
-highway=path & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
-highway=track & (foot=designated | foot=yes) & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+# highway=footway & (foot=designated | foot=yes) & bicycle!=yes & mtb:scale=no {set highway=nocycle}
+# highway=footpath & (foot=designated | foot=yes) & bicycle!=yes & mtb:scale=no {set highway=nocycle}
+highway=path & (foot=designated | foot=yes) & bicycle=no & mtb:scale=no {set highway=nocycle}
+highway=track & (foot=designated | foot=yes) & bicycle=no & mtb:scale=no {set highway=nocycle}
 
 ### Simplified footway rules, everything without bicycle designation or mtb:scale marked as footway.
-highway=footway & bicycle!=designated & mtb:scale=no {set highway=nocycle}
-highway=footpath & bicycle!=designated & mtb:scale=no {set highway=nocycle}
+highway=footway & bicycle!=yes & mtb:scale=no {set highway=nocycle}
+highway=footpath & bicycle!=yes & mtb:scale=no {set highway=nocycle}
 
 highway=nocycle [0x10118 road_class=0 resolution 23-24]
 
