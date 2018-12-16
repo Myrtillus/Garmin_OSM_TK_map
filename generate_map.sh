@@ -23,7 +23,10 @@ sudo -u nissiant git pull
 # get the osm data file
 
 #wget -O tampere.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
-wget -O tampere.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
+#wget -O tampere.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
+
+wget -O tampere.osm "http://z.overpass-api.de/api/xapi_meta?*[bbox=22.8,61.1850,25,61.7881]"
+
 
 # Split the osm file to smaller pieces
 
@@ -87,6 +90,41 @@ java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis -
 mv gmapsupp.img tk_oulu.img
 sudo chown www-data:www-data tk_oulu.img
 sudo mv -f tk_oulu.img /var/www
+
+
+
+
+# LAHTI
+#################
+#################
+
+
+# Retrieving OSM data directly and generating map
+#################################################
+
+# Get the osm datafile
+
+#wget -O oulu.osm "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=225.3686,60.8862,26.0936,61.1122]"
+wget -O lahti.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox=25.3686,60.8862,26.0936,61.1122]"
+
+# Split the osm file to smaller pieces
+
+java -jar -Xmx1000m splitter.jar lahti.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=2048 --max-nodes=1000000 --wanted-admin-level=8
+
+# Fix the names in the template.args file descriptions, MAX 20 CHARACTERS
+
+python fix_names.py TK_MTB_Lahti
+
+# Create the gmapsupp map file, NOTE THE MAPNAME HAS TO UNIQUE, FAMILY ID IS ALSO UNIQUE
+
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --nsis --mapname=88880003 --family-id=8888 --style-file=TK/ --precomp-sea=sea.zip --generate-sea --route --drive-on=detect,right --process-destination --process-exits --index --bounds=bounds.zip --location-autofill=is_in,nearest --x-split-name-index --housenumbers --remove-ovm-work-files -c template.args TK_Lahti.typ
+
+# copy the map file to /var/www for downloading
+mv gmapsupp.img tk_lahti.img
+sudo chown www-data:www-data tk_lahti.img
+sudo mv -f tk_lahti.img /var/www
+
+
 
 #################################
 
