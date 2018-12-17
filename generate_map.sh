@@ -30,9 +30,11 @@ wget -O tampere.osm "http://z.overpass-api.de/api/xapi_meta?*[bbox=22.8,61.1850,
 
 # Split the osm file to smaller pieces
 
-#java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=4096 --max-nodes=3000000 --wanted-admin-level=8
+java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=4096 --max-nodes=3000000 --wanted-admin-level=8
 
-java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=2048 --max-nodes=1000000 --wanted-admin-level=8
+#java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=2048 --max-nodes=1000000 --wanted-admin-level=8
+
+#java -jar -Xmx1000m splitter.jar tampere.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=1024 --max-nodes=500000 --wanted-admin-level=8
 
 # Fix the names in the template.args file descriptions, MAX 20 CHARACTERS
 
