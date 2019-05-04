@@ -54,10 +54,10 @@ python fix_names.py TK_MTB_Tampere
 
 
 # kes√versio kartasta
-#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args 
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args 
 
 # talviversio kartasta
-java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK_W/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args
+#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK_W/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args
 
 # copy the map file to /var/www for downloading and clean up the directory
 
