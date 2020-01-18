@@ -56,20 +56,21 @@ python fix_names.py TK_MTB_Tampere
 # kesa v√versio kartasta
 java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args 
 
+mv gmapsupp.img tk_tre.img
+sudo chown www-data:www-data tk_tre.img
+
+
 # talviversio kartasta
-#java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK_W/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Tampereen alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK_W/ TK_Tampere.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args
+
+mv gmapsupp.img tk_tre_winter.img
+sudo chown www-data:www-data tk_tre_winter.img
 
 # copy the map file to /var/www for downloading and clean up the directory
 
 
-mv gmapsupp.img tk_tre.img
-
-
-sudo chown www-data:www-data tk_tre.img
-
-
 sudo mv -f tk_tre.img /var/www
-
+sudo mv -f tk_tre_winter.img /var/www
 
 
 
