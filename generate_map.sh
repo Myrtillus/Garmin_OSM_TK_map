@@ -2,7 +2,7 @@
 #
 # mktiles.sh
 #
-# Exit on error
+# Exit on error 
 set -o errexit
 set -o nounset
 
@@ -11,6 +11,34 @@ cd /home/nissiant/Garmin_OSM_TK_map
 
 # Update the style files before generation
 sudo -u nissiant git pull
+
+
+
+# EURA
+#################
+#################
+#sudo wget --user-agent="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0" --keep-session-cookies --save-cookies cookies.txt --header="Host: kartta.arpotechno.fi" --header="Referer: http://kartta.arpotechno.fi (antti@myrtillus.net)" -O eura.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox= 21.86, 60.94, 22.40, 61.2]" --header="Referer:http://kartta.arpotechno.fi (antti@myrtillus.net)"
+sudo wget --user-agent="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0" --keep-session-cookies --save-cookies cookies.txt --header="Host: kartta.arpotechno.fi" --header="Referer: http://kartta.arpotechno.fi (antti@myrtillus.net)" -O eura.osm "http://www.overpass-api.de/api/xapi_meta?*[bbox= 21.5, 60.7, 23.0, 61.5]" --header="Referer:http://kartta.arpotechno.fi (antti@myrtillus.net)"
+
+java -jar -Xmx1000m splitter.jar eura.osm --precomp-sea=sea.zip --geonames-file=cities15000.zip --max-areas=2048 --max-nodes=1000000 --wanted-admin-level=8
+
+
+python fix_names.py TK_MTB_Eura
+
+# kesa v√versio kartasta
+java -jar -Xmx1000m mkgmap.jar --max-jobs --gmapsupp --latin1 --tdbfile --mapname=88880001 --description="OpenStreetMap-pohjainen MTB-kartta, Euran alue" --family-id=8888 --series-name="OSM MTB Suomi" --style-file=TK/ TK_Eura.typ --cycle-map --precomp-sea=sea.zip --generate-sea --bounds=bounds.zip --remove-ovm-work-files -c template.args 
+
+mv gmapsupp.img tk_eura.img
+sudo chown www-data:www-data tk_eura.img
+
+
+sudo mv -f tk_eura.img /var/www
+
+# Clean the directory
+rm -f *.osm osmmap.* *.img *.pbf osmmap_license.txt template* densities* areas*
+
+
+sleep 900
 
 # TAMPERE
 #################
