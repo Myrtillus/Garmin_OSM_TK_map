@@ -7,6 +7,14 @@
 # See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
+#
+#
+#
+#
+#
+#
+#
+#
 
 
 ##############################################################################################################################
@@ -121,7 +129,18 @@ mtb:scale="4-" | mtb:scale="4+" {set mtb:scale=4}
 mtb:scale="5-" | mtb:scale="5+" {set mtb:scale=5}
 highway=* & mtb:scale!=* {set mtb:scale=no}
 trail_visibility=bad | trail_visibility=horrible | trail_visibility=no {delete trail_visibility; set bad_vis=yes}
-surface!=mud {delete surface}
+
+
+
+
+
+
+#######################################surface!=mud {delete surface}    # pitanee olla myos joku tagi, joka osuu, pelkka kielto ei toimi!!
+highway=path & surface!=mud {delete surface}
+
+
+
+
 
 ###################################################################
 ### Cycleways
@@ -864,20 +883,3 @@ waterway=river {deletealltags}
 # Remove highway tag from ways which are not suitable for routing
 highway=traffic_signals | highway=junction | highway=island | highway=centre_line | highway=traffic_island  {delete highway} 
 highway=no | highway=none {delete highway}
- 
-# Hide unaccessible tunnels
-highway=* & tunnel=yes & (access=private|access=no)
-& foot!=* & bicycle!=* {delete highway;delete junction}
-# Disable dead-end-checks for unaccessible oneways
-highway=* & oneway=yes & (access=private|access=no)
-{add mkgmap:dead-end-check=false}
-
-
-<finalize>
-# The finalizer section is executed for each element when a rule with an element type matches
-
-# calculate the access rules
-include 'inc/access';
-
-name=* { name '${name}' }
-
