@@ -22,6 +22,7 @@ natural=scrub & landuse=forest {delete landuse}
 
 landuse=residential [0x0200 resolution 0-24]
 landuse=industrial [0x0300 resolution 0-24]
+boundary=border_zone [0x600 resolution 0-24]
 landuse=conservation [0x05700 resolution 0-24]
 natural=land [0x10100 resolution 0-24]
 wetland=swamp | wetland=bog [0x05100 resolution 0-24]
